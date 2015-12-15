@@ -8,6 +8,70 @@ $(document).ready(function() {
   //random number generator for computer choice
   var cpuChoice = Math.floor(Math.random() * choices.length);
 
+  $(document).on('click', "#rock, #paper, #scissors", function(){
+   
+    
+    var cpuChoice = Math.floor(Math.random() * choices.length);
+    
+    if (cpuChoice ==1){
+      cpuChoice = "rock";
+    } else if(cpuChoice = 2) {
+      cpuChoice = "paper";
+    } else {
+      cpuChoice = "scissors";
+    };
+
+    //sets usercHOICE. connect to cpuCcohoice
+    var userChoice = $(this).data('choice')
+    compare(userChoice, cpuChoice);
+
+
+    //create reveal user and cpu functions
+    function revealUserChoice() {
+      if (userChoice === "rock"){
+        $("#userChoice").addClass("fa fa-hand-" + userChoice.toLowerCase() + "-o fa-1x").removeClass("fa-hand-paper-o fa-hand-scissors-o");
+      } else if(userChoice === "paper") {
+        $("#userChoice").addClass("fa fa-hand-" + userChoice.toLowerCase() + "-o fa-1x").removeClass("fa-hand-rock-o fa-hand-scissors-o");
+      } else {
+        $("#userChoice").addClass("fa fa-hand-" + userChoice.toLowerCase() + "-o fa-1x").removeClass("fa-hand-rock-o fa-hand-paper-o");
+      }
+    };
+    
+    function revealComputerChoice() {
+      if (cpuChoice === "rock") {
+        $("#cpuChoice").addClass("fa fa-hand-" + cpuChoice.toLowerCase() + "-o fa-1x").removeClass("fa-hand-paper-o fa-hand-scissors-o");
+      } else if(cpuChoice === "paper") {
+        $("#cpuChoice").addClass("fa fa-hand-" + cpuChoice.toLowerCase() + "-o fa-1x").removeClass("fa-hand-rock-o fa-hand-scissors-o");
+      } else {
+        $("#cpuChoice").addClass("fa fa-hand-" + cpuChoice.toLowerCase() + "-o fa-1x").removeClass("fa-hand-rock-o fa-hand-paper-o");
+      }
+    };
+
+    //call it
+    revealUserChoice();
+    revealComputerChoice();
+    round++;
+    $("#round").html(round);
+
+    if (round === 3) {
+      if (userScore > cpuScore){
+        $("modalResult").html("you win baby!!");
+        } else if (userScore < cpuScore) {
+        $("#modalResult").html("You lose, you are not good at this game!");
+      } else {
+        $("#modalResult").html("It's a draw, you should play again!");
+      
+      }
+    
+    
+  //compare the userChoice with cpuChoice and give a message
+  var compare = function(userChoice, cpuChoice) {
+    var rockWinner = "rock wins!";
+    var paperWinner = "paper wins!";
+    var scissorWinner = "scissors wins!";
+    var tieMsg = "tie game!";
+  
+
   //if-else outcomes. 
   if (userChoice === cpuChoice) {
     $("#gameMsg").html(tieMsg);
@@ -54,7 +118,9 @@ $(document).ready(function() {
       }
     }
   }
+   
+ });
+  
  
-}); 
   
 
