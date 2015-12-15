@@ -4,7 +4,6 @@
     <title>rock, paper, scissors</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -20,7 +19,7 @@
         <i class="fa fa-hand-paper-o fa-5x" data-choice="paper" id="paper"></i>
         <i class="fa fa-hand-scissors-o fa-5x" data-choice="scissors" id="scissors"></i>
       </div>   
-
+</div>
       <div class="messageBoard">
         <h4><span id="gameMsg"></span></h4>
       </div>
@@ -31,27 +30,27 @@
           <h3>Round: <span id="round"></span></h3>
         </div>  
       </div>
-    </div> 
-  
-  
-   <div class=" col-md-6 text-center">
+    </div>
+<div class="row"></div>
+<div class="col-md-12">
+  <div class=" col-md-6 pull-left">
     <div id="RPSshoot">
         <h4 id="youThrew">Your choice: <span id="userChoice"></span></h4>
         
         <h4 id="cpuThrew">Computer choice: <span id="cpuChoice"></span></h4>
     </div> 
    </div> 
-   <div class="col-md-6 text-center">
+   <div class="col-md-6 pull-right">
         <div id="alignedScores">
           <h4 id="yourScore">Your score: <span class="userScore">0</span></h4>
           <h4 id="computerScore">Computer score: <span class="cpuScore">0</span></h4>
         </div> 
-      </div>
-</div>
-
+    </div>
     <div>
       <h4 id="gameResult"></h4>
     </div>
+</div>
+</div>
           
   <!--Modal-->
     <aside class="modal fade" id="gameOver" role="dialog"  tabindex='-1'>
