@@ -3,7 +3,7 @@ $(document).ready(function() {
   var round = "";
   var userScore = 0;
   var cpuScore  = 0;
-  var draws = o;
+  var draws = 0;
 
   //random number generator for computer choice
   var cpuChoice = Math.floor(Math.random() * choices.length);
@@ -55,13 +55,38 @@ $(document).ready(function() {
 
     if (round === 3) {
       if (userScore > cpuScore){
-        $("modalResult").html("you win baby!!");
+        $("#modalResult").html("you win baby!!");
         } else if (userScore < cpuScore) {
         $("#modalResult").html("You lose, you are not good at this game!");
       } else {
         $("#modalResult").html("It's a draw, you should play again!");
       
       }
+
+      $("#gameOver").modal("show");
+      $("#gameOver").on('hide.bs.modal', function () {
+        round = "";
+        userScore = 0;
+        cpuScore = 0;
+        draws = 0;
+        userChoice="";
+        cpuChoice ="";
+        rockWinner = "";
+        paperWinner = "";
+        scissorWinner = "";
+        tieMsg = "";
+        $("#round").html(round);
+        $(".userScore").html(userScore);
+        $(".cpuScore").html(cpuScore);
+        $("#userChoice").removeClass("fa-hand-paper-o fa-hand-scissors-o fa-hand-rock-o");
+        $("#cpuChoice").removeClass("fa-hand-paper-o fa-hand-scissors-o fa-hand-rock-o");
+        $("#gameMsg").html(rockWinner);
+        $("#gameMsg").html(paperWinner);
+        $("#gameMsg").html(scissorWinner);
+        $("#gameMsg").html(tieMsg);
+      })
+    }
+  });
     
     
   //compare the userChoice with cpuChoice and give a message
