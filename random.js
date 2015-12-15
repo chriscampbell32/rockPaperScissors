@@ -5,6 +5,9 @@ $(document).ready(function() {
   var cpuScore  = 0;
   var draws = o;
 
+  //random number generator for computer choice
+  var cpuChoice = Math.floor(Math.random() * choices.length);
+
   //if-else outcomes. 
   if (userChoice === cpuChoice) {
     $("#gameMsg").html(tieMsg);
